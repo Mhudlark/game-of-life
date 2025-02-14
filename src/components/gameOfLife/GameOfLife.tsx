@@ -180,7 +180,7 @@ export const GameOfLife: React.FC<GameOfLifeProps> = ({
             <Box key={rule.id} sx={{ display: "flex", alignItems: "center" }}>
               <Typography>{rule.name}</Typography>
               <Switch
-                checked={ruleStates?.[rule?.id] || true}
+                checked={ruleStates?.[rule?.id] ?? true}
                 onChange={() => toggleEnableRule(rule.id)}
               />
             </Box>
