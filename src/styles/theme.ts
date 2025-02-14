@@ -13,5 +13,8 @@ export const theme = createTheme({
       default: "#212121",
       paper: "#333",
     },
+    text: {
+      secondary: "#d2d2d2",
+    },
   },
 });

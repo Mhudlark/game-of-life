@@ -134,7 +134,8 @@ export const GameOfLife: React.FC<GameOfLifeProps> = ({
       </Typography>
       {description && (
         <Typography
-          sx={{ marginBottom: "24px", textAlign: "center", color: "#d2d2d2" }}
+          sx={{ marginBottom: "24px", textAlign: "center" }}
+          color="textSecondary"
         >
           {description}
         </Typography>
@@ -163,16 +164,8 @@ export const GameOfLife: React.FC<GameOfLifeProps> = ({
       </Box>
 
       <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-        <Typography
-          sx={{
-            color: "#d2d2d2",
-          }}
-        >{`Prop: ${proportion.toFixed(2)}`}</Typography>
-        <Typography
-          sx={{
-            color: "#d8d8d8",
-          }}
-        >
+        <Typography color="textSecondary">{`Prop: ${proportion.toFixed(2)}`}</Typography>
+        <Typography color="textSecondary">
           {`Avg. Lifespan: ${averageLifeSpan.toFixed(3)}`}
         </Typography>
       </Box>
