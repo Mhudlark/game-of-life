@@ -58,9 +58,9 @@ const GameOfLifePage: React.FC = () => {
             </li>
             <li>
               <Typography color="textSecondary">
-                Creating a rule set that results in a consistent proportion of
-                approx. 40% and an average lifespan higher than Conway's
-                (approx. 0.04)
+                {
+                  "Creating a rule set that results in a consistent proportion of approx. 40% and an average lifespan higher than Conway's (approx. 0.04)"
+                }
               </Typography>
             </li>
             <li>
@@ -78,7 +78,7 @@ const GameOfLifePage: React.FC = () => {
             </li>
             <li>
               <Typography color="textSecondary">
-                Is the previous point bullshit? Probably :)
+                {"Is the previous point bullshit? Probably :)"}
               </Typography>
             </li>
           </ul>
