@@ -133,7 +133,9 @@ export const GameOfLife: React.FC<GameOfLifeProps> = ({
         {title}
       </Typography>
       {description && (
-        <Typography sx={{ marginBottom: "24px", textAlign: "center" }}>
+        <Typography
+          sx={{ marginBottom: "24px", textAlign: "center", color: "#d2d2d2" }}
+        >
           {description}
         </Typography>
       )}
@@ -161,8 +163,16 @@ export const GameOfLife: React.FC<GameOfLifeProps> = ({
       </Box>
 
       <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-        <Typography>{`Prop: ${proportion.toFixed(2)}`}</Typography>
-        <Typography>
+        <Typography
+          sx={{
+            color: "#d2d2d2",
+          }}
+        >{`Prop: ${proportion.toFixed(2)}`}</Typography>
+        <Typography
+          sx={{
+            color: "#d8d8d8",
+          }}
+        >
           {`Avg. Lifespan: ${averageLifeSpan.toFixed(3)}`}
         </Typography>
       </Box>
@@ -190,6 +200,10 @@ export const GameOfLife: React.FC<GameOfLifeProps> = ({
         sx={{
           display: "grid",
           gridTemplateColumns: `repeat(${gridSize.width}, ${cellSize}px)`,
+          padding: "8px",
+          border: "1px solid #fafafa",
+          borderRadius: "4px",
+          borderCollapse: "collapse",
         }}
       >
         {grid.map((row, r) =>

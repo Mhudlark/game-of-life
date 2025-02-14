@@ -26,8 +26,8 @@ export const Cell: React.FC<CellProps> = ({
       style={{
         width: cellSize,
         height: cellSize,
-        backgroundColor: cell.isActive ? "black" : "white",
-        border: "1px solid #ddd",
+        backgroundColor: cell.isActive ? "#06ca39" : "transparent",
+        border: "1px solid #333",
         cursor: "pointer",
       }}
     />

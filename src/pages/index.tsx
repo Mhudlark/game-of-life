@@ -7,7 +7,12 @@ import { Life2 } from "@/components/games/Life2/Life2";
 
 const GameOfLifePage: React.FC = () => {
   return (
-    <Container>
+    <Container
+      sx={{
+        padding: "24px",
+        paddingY: "128px",
+      }}
+    >
       <Conway />
       <Divider
         sx={{
