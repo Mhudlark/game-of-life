@@ -6,6 +6,7 @@ import { Clear, PlayArrow, Stop } from "@mui/icons-material";
 import {
   getImmediateNeighboursCount,
   getRegionNeighborsCount,
+  isLifespanIgnoreCell,
 } from "./helpers";
 import { CellInfo, GridSize, GridType, Rule } from "./types";
 
@@ -98,10 +99,19 @@ export const GameOfLife: React.FC<GameOfLifeProps> = ({
     [grid]
   );
   const proportion = useMemo(() => count / numCells, [count, numCells]);
-  const averageLifeSpan = useMemo(
-    () => grid.flat().reduce((acc, cell) => acc + cell.lifeSpan, 0) / numCells,
-    [grid, numCells]
-  );
+  const averageLifeSpan = useMemo(() => {
+    let totalLifeSpan = 0;
+    grid.map((row, r) =>
+      row.map((cell, c) => {
+        // Ignore edge rows and columns
+        if (isLifespanIgnoreCell(r, c, gridSize)) return;
+
+        totalLifeSpan += cell.lifeSpan;
+      })
+    );
+
+    return totalLifeSpan / numCells;
+  }, [grid, numCells, gridSize]);
 
   return (
     <Container
