@@ -108,6 +108,11 @@ const GameOfLifePage: React.FC = () => {
         }}
       />
       <Life2 />
+      <Divider
+        sx={{
+          margin: "96px 0",
+        }}
+      />
     </Container>
   );
 };
