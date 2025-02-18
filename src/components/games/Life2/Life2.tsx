@@ -40,7 +40,7 @@ export const Life2: React.FC = () => {
     >
       <GameOfLife
         title={"Life 2"}
-        description="Only uses regional information. No randomness. Achieved better lifespans but low proportions."
+        description="Only uses regional information. No randomness."
         rules={rules}
         gridSize={{ width: 40, height: 30 }}
       />
