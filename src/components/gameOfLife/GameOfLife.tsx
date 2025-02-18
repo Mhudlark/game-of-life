@@ -3,7 +3,11 @@ import { generateEmptyGrid } from "@/utils/grid";
 import { Cell, ICell } from "@/components/grid/Cell";
 import { Container, Button, Switch, Box, Typography } from "@mui/material"; // Import MUI components
 import { Clear, PlayArrow, Stop } from "@mui/icons-material";
-import { getRegionNeighborsCount, NeighboursCount } from "./helpers";
+import {
+  getImmediateNeighboursCount,
+  getRegionNeighborsCount,
+  NeighboursCount,
+} from "./helpers";
 
 type GridType = ICell[][];
 
@@ -66,7 +70,7 @@ export const GameOfLife: React.FC<GameOfLifeProps> = ({
   const getNextGeneration = (grid: GridType): GridType => {
     return grid.map((row, r) =>
       row.map((cell, c) => {
-        const neighbours = getRegionNeighborsCount(grid, r, c);
+        const neighbours = getImmediateNeighboursCount(grid, r, c);
         const region = getRegionNeighborsCount(grid, r, c);
 
         const cellInfo: CellInfo = {
