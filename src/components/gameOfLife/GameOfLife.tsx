@@ -69,7 +69,8 @@ export const GameOfLife: React.FC<GameOfLifeProps> = ({
           : cell.isActive;
 
         return {
-          lifeSpan: !activeRule && isActive ? cell.lifeSpan + 1 : 0,
+          // Increase lifespan of surviving cells only
+          lifeSpan: cell.isActive && isActive ? cell.lifeSpan + 1 : 0,
           isActive,
         };
       })
