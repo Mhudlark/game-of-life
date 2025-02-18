@@ -1,6 +1,7 @@
 import React from "react";
-import { GameOfLife, Rule } from "../../gameOfLife/GameOfLife";
+import { GameOfLife } from "@/components/gameOfLife/GameOfLife";
 import { Container } from "@mui/material";
+import { Rule } from "@/components/gameOfLife/types";
 
 const rules: Rule[] = [
   {

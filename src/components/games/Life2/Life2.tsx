@@ -1,6 +1,7 @@
 import React from "react";
-import { GameOfLife, Rule } from "../../gameOfLife/GameOfLife";
+import { GameOfLife } from "@/components/gameOfLife/GameOfLife";
 import { Container } from "@mui/material";
+import { Rule } from "@/components/gameOfLife/types";
 
 const rules: Rule[] = [
   {
@@ -39,7 +40,7 @@ export const Life2: React.FC = () => {
     >
       <GameOfLife
         title={"Life 2"}
-        description="Only uses regional information. Achieved better lifespans but low proportions."
+        description="Only uses regional information. No randomness. Achieved better lifespans but low proportions."
         rules={rules}
         gridSize={{ width: 40, height: 30 }}
       />

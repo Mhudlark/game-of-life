@@ -4,6 +4,7 @@ import { DayAndNight } from "@/components/games/DayAndNight/DayAndNight";
 import { Conway } from "@/components/games/Conway/Conway";
 import { Life1 } from "@/components/games/Life1/Life1";
 import { Life2 } from "@/components/games/Life2/Life2";
+import { Life3 } from "@/components/games/Life3/Life3";
 
 const GameOfLifePage: React.FC = () => {
   return (
@@ -113,6 +114,7 @@ const GameOfLifePage: React.FC = () => {
           margin: "96px 0",
         }}
       />
+      <Life3 />
     </Container>
   );
 };

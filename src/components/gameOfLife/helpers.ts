@@ -1,4 +1,20 @@
 import { ICell } from "../grid/Cell";
+import { GridSize } from "./types";
+
+export const LIFE_SPAN_BORDER_IGNORE_SIZE = 3;
+
+export const isLifespanIgnoreCell = (
+  r: number,
+  c: number,
+  gridSize: GridSize
+) => {
+  return (
+    r < LIFE_SPAN_BORDER_IGNORE_SIZE ||
+    r > gridSize.height - LIFE_SPAN_BORDER_IGNORE_SIZE - 1 ||
+    c < LIFE_SPAN_BORDER_IGNORE_SIZE ||
+    c > gridSize.width - LIFE_SPAN_BORDER_IGNORE_SIZE - 1
+  );
+};
 
 export type NeighboursCount = {
   count: number;

@@ -1,38 +1,19 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { generateEmptyGrid } from "@/utils/grid";
-import { Cell, ICell } from "@/components/grid/Cell";
+import { Cell } from "@/components/grid/Cell";
 import { Container, Button, Switch, Box, Typography } from "@mui/material"; // Import MUI components
 import { Clear, PlayArrow, Stop } from "@mui/icons-material";
 import {
   getImmediateNeighboursCount,
   getRegionNeighborsCount,
-  NeighboursCount,
 } from "./helpers";
-
-type GridType = ICell[][];
-
-export type CellInfo = {
-  neighbours: NeighboursCount;
-  region: NeighboursCount;
-  isAlive: boolean;
-};
-
-export interface Rule {
-  id: string;
-  name: string;
-  description: string;
-  condition: (cellInfo: CellInfo) => boolean;
-  result: (cellInfo: CellInfo) => boolean;
-}
+import { CellInfo, GridSize, GridType, Rule } from "./types";
 
 export type GameOfLifeProps = {
   title: string;
   description?: string;
   rules: Rule[];
-  gridSize: {
-    width: number;
-    height: number;
-  };
+  gridSize: GridSize;
   cellSize?: number;
 };
 
