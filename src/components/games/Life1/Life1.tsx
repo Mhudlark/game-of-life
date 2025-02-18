@@ -15,21 +15,25 @@ const rules: Rule[] = [
     name: "Survival",
     description:
       "A live cell with 2 or more live neighbors survives. Overpopulation causes death.",
-    condition: ({ isAlive }) => isAlive, // Always check survival/death for live cells
-    result: ({ neighbours }) => {
-      // Survival
-      if (neighbours.count >= 2 && neighbours.count <= 3) {
-        return Math.random() < 0.9; // 90% chance of survival, 10% chance of death
-      }
-      // Overpopulation (more than 3 neighbors)
-      else if (neighbours.count > 3) {
-        return Math.random() < 0.2; // 20% chance of survival, 80% chance of death
-      }
-      // Loneliness (less than 2 neighbors)
-      else {
-        return Math.random() < 0.1; // 10% chance of survival, 90% chance of death
-      }
-    },
+    condition: ({ isAlive, neighbours }) =>
+      isAlive && neighbours.count >= 2 && neighbours.count <= 3,
+    result: ({}) => Math.random() < 0.9,
+  },
+  {
+    id: "overpopulation",
+    name: "Overpopulation",
+    description:
+      "A live cell with more than three live neighbors is likely to die.",
+    condition: ({ isAlive, neighbours }) => isAlive && neighbours.count > 3,
+    result: () => Math.random() < 0.2, // 20% chance of survival, 80% chance of death
+  },
+  {
+    id: "loneliness",
+    name: "Loneliness",
+    description:
+      "A live cell with fewer than two live neighbors is likely to die.",
+    condition: ({ isAlive, neighbours }) => isAlive && neighbours.count < 2,
+    result: () => Math.random() < 0.1, // 10% chance of survival, 90% chance of death
   },
 ];
 
@@ -46,6 +50,7 @@ export const Life1: React.FC = () => {
     >
       <GameOfLife
         title={"Life 1"}
+        description="Achieved good spreading behavior but low lifespans / high flickering."
         rules={rules}
         gridSize={{ width: 40, height: 30 }}
       />
